@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Match Challenge</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="header">
+        <div class="scores">
+          <div class="score-card">
+            <span>SCORE</span>
+            <div data-testid="score">0</div>
+          </div>
+          <div class="score-card">
+            <span>BEST</span>
+            <div id="highScore">0</div>
+          </div>
+        </div>
+      </div>
+
+      <h1 data-testid="gameInstructions">Match the Color</h1>
+
+      <div class="color-display">
+        <div class="color-box" data-testid="colorBox"></div>
+      </div>
+
+      <div class="color-options" data-testid="colorOptions"></div>
+
+      <div data-testid="gameStatus" class="status"></div>
+
+      <button data-testid="newGameButton" class="action-button">
+        New Round
+      </button>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
