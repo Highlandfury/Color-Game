@@ -1,95 +1,3 @@
-const colorBox = document.querySelector('[data-testid="colorBox"]');
-const colorOptions = document.querySelector('[data-testid="colorOptions"]');
-const gameStatus = document.querySelector('[data-testid="gameStatus"]');
-const scoreDisplay = document.querySelector('[data-testid="score"]');
-const highScoreDisplay = document.querySelector('[data-testid="highScore"]');
-const newGameButton = document.querySelector('[data-testid="newGameButton"]');
-
-let score = 0;
-let highScore = 0;
-let targetColor;
-
-// Flag to ensure the "new high score" message shows only once per game
-let newHighScoreShown = false;
-
-// An array of color objects with hex codes and descriptive names.
-const colors = [
-  { hex: "#a8e6cf", name: "Minty Green" },
-  { hex: "#dcedc1", name: "Pastel Green" },
-  { hex: "#ffd3b6", name: "Peach" },
-  { hex: "#ffaaa5", name: "Salmon" },
-  { hex: "#ff8b94", name: "Coral Pink" },
-  { hex: "#c6c6c6", name: "Silver" },
-  { hex: "#b5e7a0", name: "Sage" },
-  { hex: "#d5e1df", name: "Pale Blue" },
-  { hex: "#e3eaa7", name: "Lime" },
-  { hex: "#86af49", name: "Olive" },
-  { hex: "#c0d6df", name: "Sky Blue" },
-];
-
-/*
- * Converts a hex color string to an object with r, g, b values.
- */
-function hexToRGB(hex) {
-  hex = hex.replace("#", "");
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
-  return { r, g, b };
-}
-
-/*
- * Starts a completely new game (resets score and re-enables buttons).
- */
-function startNewGame() {
-  score = 0;
-  newHighScoreShown = false; // Reset flag for new game
-  scoreDisplay.textContent = score;
-  gameStatus.textContent = "Make your guess!";
-  nextRound();
-}
-
-/*
- * Prepares a new round by setting a new target color and re-rendering the options.
- */
-function nextRound() {
-  targetColor = colors[Math.floor(Math.random() * colors.length)];
-  colorBox.style.backgroundColor = targetColor.hex;
-  renderColorOptions();
-}
-
-/*
- * Renders the color options ensuring the targetColor is always among them.
- */
-function renderColorOptions() {
-  colorOptions.innerHTML = "";
-  // Create a shuffled copy of the colors array and take 6 options.
-  let shuffledColors = colors
-    .slice()
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 6);
-
-  // Ensure the targetColor is among the options.
-  if (!shuffledColors.find((color) => color.hex === targetColor.hex)) {
-    const randomIndex = Math.floor(Math.random() * shuffledColors.length);
-    shuffledColors[randomIndex] = targetColor;
-  }
-
-  // Create and append buttons for each color.
-  shuffledColors.forEach((color) => {
-    const button = document.createElement("button");
-    button.style.backgroundColor = color.hex;
-    button.addEventListener("click", () => handleGuess(color));
-    // Ensure the button is enabled (useful after a failed round)
-    button.disabled = false;
-    button.style.cursor = "pointer";
-    colorOptions.appendChild(button);
-  });
-}
-
-/*
- * Handles the user's guess.
- */
 function handleGuess(guess) {
   if (guess.hex === targetColor.hex) {
     // Correct guess branch.
@@ -163,11 +71,8 @@ function handleGuess(guess) {
       button.disabled = true;
       button.style.cursor = "not-allowed";
     });
+
+    // Remove the fade-out effect for failed messages.
+    gameStatus.classList.remove("fade-out-status");
   }
 }
-
-// Bind the new game button to restart the game.
-newGameButton.addEventListener("click", startNewGame);
-
-// Start the game for the first time.
-startNewGame();
