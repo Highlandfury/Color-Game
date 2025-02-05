@@ -135,15 +135,15 @@ h1 {
 
 /* Responsive design for tablets and desktops */
 @media (min-width: 600px) {
-  /* Ensure the entire game is visible on desktop without scrolling */
   .game-container {
-    height: 100vh; /* Use full viewport height */
-    max-width: 600px; /* Optional: cap width for a better layout */
+    min-height: 100vh; /* Allow the container to expand if needed */
+    max-width: 600px; /* Cap the width for a better layout */
+    margin: 0 auto; /* Center horizontally */
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center; /* Center content vertically */
   }
 
   .color-box {
