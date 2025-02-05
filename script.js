@@ -62,6 +62,8 @@ function nextRound() {
  * Renders the color options ensuring the targetColor is always among them.
  */
 function renderColorOptions() {
+  // In renderColorOptions() function, add:
+button.setAttribute('data-testid', 'colorOption');
   colorOptions.innerHTML = "";
   // Create a shuffled copy of the colors array and take 6 options.
   let shuffledColors = colors
