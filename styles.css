@@ -1,183 +1,241 @@
 :root {
-  --primary: #2c3e50;
-  --accent: #3498db;
-  --correct: #2ecc71;
-  --error: #e74c3c;
-  --background: #ecf0f1;
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --correct: #2ecc71;
+    --error: #e74c3c;
+    --background: #ecf0f1;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--background);
-  font-family: "Segoe UI", system-ui, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .game-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
 }
 
 .header {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .scores {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .score-card {
-  background: var(--primary);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  min-width: 100px;
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    min-width: 100px;
 }
 
 .score-card span {
-  display: block;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 0.25rem;
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
 }
 
 .score-card div {
-  font-size: 1.5rem;
-  font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 h1 {
-  color: var(--primary);
-  margin: 0 0 2rem 0;
-  font-size: 1.8rem;
+    color: var(--primary);
+    margin: 0 0 2rem 0;
+    font-size: 1.8rem;
 }
 
 .color-display {
-  margin: 2rem 0;
+    margin: 2rem 0;
 }
 
 .color-box {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
 }
 
 .color-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
 }
 
 .color-option {
-  aspect-ratio: 1;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .color-option:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .color-option.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .status {
-  min-height: 40px;
-  margin: 1rem 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+    min-height: 40px;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .action-button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: all 0.2s ease;
-  width: 100%;
-  max-width: 200px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 200px;
 }
 
 .action-button:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
+    background: var(--accent);
+    transform: translateY(-2px);
 }
 
 /* Animations */
 @keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 @keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-10px);
-  }
-  75% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
 }
 
 .correct {
-  animation: bounce 0.6s ease;
-  box-shadow: 0 0 0 3px var(--correct);
+    animation: bounce 0.6s ease;
+    box-shadow: 0 0 0 3px var(--correct);
 }
 
 .wrong {
-  animation: shake 0.4s ease;
-  box-shadow: 0 0 0 3px var(--error);
+    animation: shake 0.4s ease;
+    box-shadow: 0 0 0 3px var(--error);
 }
 
 @media (max-width: 480px) {
-  .game-container {
-    padding: 1.5rem;
-  }
+    .game-container {
+        padding: 1.5rem;
+    }
 
-  .color-options {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .color-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .color-box {
-    width: 150px;
-    height: 150px;
+    .color-box {
+        width: 150px;
+        height: 150px;
+    }
+}
+:root {
+  --box-size: 20vmin; /* Responsive size based on viewport */
+  --gap-size: 2vmin;
+}
+
+.game-container {
+  padding: 4vmin;
+  width: 90%;
+  max-width: 600px;
+}
+
+.color-box {
+  width: calc(var(--box-size) * 2);
+  height: calc(var(--box-size) * 2);
+  margin: 4vmin auto;
+}
+
+.color-options {
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-size);
+  margin: 4vmin 0;
+}
+
+.color-option {
+  width: 100%;
+  height: var(--box-size);
+  border-radius: 1.5vmin;
+}
+
+/* Mobile-first media queries */
+@media (min-width: 480px) {
+  :root {
+    --box-size: 18vmin;
+    --gap-size: 1.5vmin;
   }
 }
 
+@media (min-width: 768px) {
+  :root {
+    --box-size: 15vmin;
+    --gap-size: 1vmin;
+  }
+  
+  .game-container {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --box-size: 12vmin;
+  }
+}
+
+/* Maintain 3 columns even on smallest screens */
+@media (max-width: 360px) {
+  :root {
+    --box-size: 22vmin;
+    --gap-size: 3vmin;
+  }
+  
+  .game-container {
+    padding: 3vmin;
+    width: 95%;
+  }
+}
+
+/* Touch optimization */
+.color-option {
+  min-width: 60px;
+  min-height: 60px;
+}
